@@ -1,0 +1,21 @@
+@import url('root.css');
+.form{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 40px;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: #CADCFA;
+}
+.form input, .form select, .form textarea{
+    outline: none;
+    border: 2px solid var(--main_color);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+
+.form__item{
+    display: flex;
+    flex-direction: column;
+}

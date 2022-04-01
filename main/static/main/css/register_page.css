@@ -1,0 +1,29 @@
+@import url('root.css');
+.register-form{
+    max-width: 500px;
+    margin: 200px auto;
+}
+.register-form__title{
+    grid-column: 1/-1;
+    text-align: center;
+    color: var(--header_text_color);
+}
+.register-form label{
+    color: var(--header_text_color);
+}
+.register-form .email{
+    grid-column: 1/-1;
+}
+.register-form select{
+    --hover-border: none;
+}
+
+.register-form__submit{
+    grid-column: 1/-1;
+    justify-self: center;
+    display: flex;
+    gap: 10px;
+}
+body{
+    background: url('../img/stud2.jpg');
+}

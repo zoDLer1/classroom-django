@@ -1,0 +1,52 @@
+@import url('root.css');
+
+
+.mainblock{
+    padding-top: 60px;
+    /* background-color: #fffaf2; */
+    margin-bottom: 60px;
+}
+/* #fffaf2 */
+/* #CADCFA */
+
+.mainblock__content{
+    display: flex;
+}
+
+
+.mainblock__img img{
+    width: 800px;
+}
+
+.mainblock__info h1{
+    font-size: 46px;
+    color: var(--header_text_color);
+    line-height: 60px;
+    margin-bottom: 40px;
+}
+
+.mainblock__links{
+    display: flex;
+    gap: 10px;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin: 20px 0;
+}
+
+
+.mainblock__description{
+    color: var(--text_color);
+    /* margin-bottom: 20px; */
+    
+}
+.mainblock__log-link{
+    color: var(--header_text_color);
+}
+
+.mainblock__log-link-header a:hover{
+    text-decoration: underline;
+}
+.mainblock__log-link-header{
+    color: var(--text_color);
+}

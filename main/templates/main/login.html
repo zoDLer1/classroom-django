@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="http://127.0.0.1:5000/css/login.css">
+{% endblock %}
+
+
+
+{% block content %}
+
+<form class="form login-form" action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    
+    <h1 class="register-form__title">Login</h1>
+    <div class="form__item">
+        <label for="name">Name:</label>
+        {{form.username}}
+        {% comment %} <input type="text" name="name" id="name"> {% endcomment %}
+    </div>
+    
+    <div class="form__item">
+        <label for="password">Password:</label>
+        {{form.password}}
+        {% comment %} <input type="password" name="password" id="password"> {% endcomment %}
+        <div class="form__links">
+            <a href="" class="form__link">Fogot password?</a>
+            <a href="" class="form__link">Help</a>
+        </div>
+    </div>
+
+    
+    <button type="submit" class="button button--four register-form__submit"> 
+        <span class="button__text">Go to study!</span>
+        <i class="fa-solid fa-graduation-cap"></i>
+    </button>
+</form>
+
+{% endblock %}

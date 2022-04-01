@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="http://127.0.0.1:5000/css/register_page.css">
+{% endblock %}
+
+{% block content %}
+    
+    <form class="form register-form" action="" method="post">
+        {% csrf_token %}
+        <h1 class="register-form__title">Register</h1>
+        <div class="form__item">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form__item">
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+        <div class="form__item">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="form__item">
+            <label for="phone">Phone:</label>
+            <input type="tel" name="phone" id="phone">
+        </div>
+
+        <div class="form__item">
+            <label for="age">Age:</label>
+            <select name="age" id="age">
+                <option disabled selected value></option>
+                {% for year in age_range %}
+                    <option value="{{ year }}">{{ year }}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="form__item">
+            <label for="role">Role:</label>
+            <select name="role" id="role">
+                <option disabled selected value></option>
+                {% for role in roles %}
+                    <option value="{{ role.name }}">{{ role.name|title }}</option>
+                {%endfor%}
+            </select>
+        </div>
+
+        <div class="form__item">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="form__item">
+            <label for="confim_password">Confim password:</label>
+            <input type="password" name="confim_password" id="confim_password">
+        </div>
+        
+        <button type="submit" class="button button--four register-form__submit"> 
+            <span class="button__text">Go to study!</span>
+            <i class="fa-solid fa-graduation-cap"></i>
+        </button>
+    </form>
+{% endblock %}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="http://127.0.0.1:5000/css/style.css">
+    {% block styles %}
+    {% endblock %}
+    <script src="https://kit.fontawesome.com/7e280282ee.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="navigation">
+            <a href="#" class="navigation__elem">
+                <span class="nav__text">Tests</span>
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <a href="#" class="navigation__elem">
+                <span class="nav__text">For teachers</span>
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+            <a href="#" class="navigation__elem">
+                <span class="nav__text">Support</span>
+                <i class="fa-solid fa-angle-down"></i>
+            </a>
+        </div>
+
+
+    {% if not user.is_authenticated %}
+
+        <div class="user-nav">
+            <a href="{% url 'register' %}" class="button button--second user-nav__signup">
+                <span class="button__text">Sign up</span>
+                <i class="fa-solid fa-angle-right"></i>
+            </a>
+            <a href="{% url 'login_page' %}" class="button button--four user-nav__login">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span class="button__text">Log In</span>
+            </a>
+        </div>
+    {% else %}
+        <div class="user-nav">
+            <div class="user-nav__userinfo">
+                <img src="http://127.0.0.1:5000/img/avatar.png" class="user-nav__avatar" alt="" width="40px" height="40px">
+                <h3 class="user-nav__username">{{user}}</h3>
+                <div class="user-nav__menu">
+                    <a href="#"><i class="fa-solid fa-bars"></i></a>
+                </div>
+          <!-- menu -->
+        </div>
+    {% endif %}
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="footer__content">
+            <ul class="footer__list">
+                <li class="footer__item">Подписывайтесь на нас:</li>
+                <li class="footer__item">
+                    <ul class="footer__messegers">
+                        <li class="footer__messeger"><a href="#"> <i class="fa-brands fa-twitter"></i></a></li>
+                        <li class="footer__messeger"><a href="#"> <i class="fa-brands fa-instagram"></i></a></li>
+                        <li class="footer__messeger"><a href="#"> <i class="fa-brands fa-facebook"></i></a></li>
+                        <li class="footer__messeger"><a href="#"> <i class="fa-brands fa-youtube"></i></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="footer__list">
+                <li class="footer__item"> <a href="#"> Блог Викторины</a></li>
+                <li class="footer__item"> <a href="#"> Ресурсы для учителей</a></li>
+                <li class="footer__item"> <a href="#"> Центр помощи</a></li>
+                <li class="footer__item"> <a href="#"> Доступность и инклюзивность</a></li>
+            </ul>
+            <ul class="footer__list">
+                <li class="footer__item"> <a href="#"> Условия обслуживания</a></li>
+                <li class="footer__item"> <a href="#"> Политика конфиденциальности</a></li>
+                <li class="footer__item"> <a href="#"> Карьера</a></li>
+                <li class="footer__item"> <a href="#"> Насчет нас</a></li>
+            </ul>
+            <ul class="footer__list">
+                <li class="footer__item">Скачать мобильные приложения</li>
+                <li class="footer__item"> 
+                    <ul class="mobile-apps">
+                        <li class="mobile-apps__link">
+                            <a href="#">
+                                <img src="https://cf.quizizz.com/img/landing/apple%20app%20store.png" alt="...">
+                            </a>
+                        </li>
+                        <li class="mobile-apps__link">
+                            <a href="#">
+                                <img src="https://cf.quizizz.com/img/landing/google%20play.png" alt="...">
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+        </div>
+    </footer>
+</body>
+</html>
