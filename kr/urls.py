@@ -16,13 +16,11 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
-from .views import index, login, register
+from .views import index
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('login', login, name='login_page'),
-    path('register', register, name='register'),
     path('users/', include('users.urls'))
 ]

@@ -1,7 +1,7 @@
 from django import forms
-from users.models import User
+from .models import User
 
-class AuthForm(forms.ModelForm):
+class RegisterForm(forms.ModelForm):
     class Meta:
         model = User
-        fields= ('username', 'password', ) 
+        fields= ('first_name', 'last_name','username', 'email', 'role', 'password',) 

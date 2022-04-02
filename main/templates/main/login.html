@@ -10,11 +10,11 @@
 
 <form class="form login-form" action="{% url 'login' %}" method="post">
     {% csrf_token %}
-    
     <h1 class="register-form__title">Login</h1>
     <div class="form__item">
         <label for="name">Name:</label>
         {{form.username}}
+        
         {% comment %} <input type="text" name="name" id="name"> {% endcomment %}
     </div>
     

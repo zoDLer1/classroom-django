@@ -5,25 +5,28 @@
 {% endblock %}
 
 {% block content %}
-    
     <form class="form register-form" action="" method="post">
         {% csrf_token %}
         <h1 class="register-form__title">Register</h1>
         <div class="form__item">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+            <label for="id_first_name">Name:</label>
+            {{form.first_name}}
+            <!-- <input type="text" name="name" id="name"> -->
         </div>
         <div class="form__item">
             <label for="lastname">Lastname:</label>
-            <input type="text" name="lastname" id="lastname">
+            {{form.last_name}}
+            <!-- <input type="text" name="lastname" id="lastname"> -->
         </div>
         <div class="form__item">
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            {{form.email}}
+            <!-- <input type="email" name="email" id="email"> -->
         </div>
         <div class="form__item">
-            <label for="phone">Phone:</label>
-            <input type="tel" name="phone" id="phone">
+            <label for="username">Username:</label>
+            {{form.username}}
+            <!-- <input type="text" name="username" id="username"> -->
         </div>
 
         <div class="form__item">
@@ -37,17 +40,19 @@
         </div>
         <div class="form__item">
             <label for="role">Role:</label>
-            <select name="role" id="role">
+            {{form.role}}
+            <!-- <select name="role" id="role">
                 <option disabled selected value></option>
                 {% for role in roles %}
                     <option value="{{ role.name }}">{{ role.name|title }}</option>
                 {%endfor%}
-            </select>
+            </select> -->
         </div>
 
         <div class="form__item">
             <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
+            {{form.password}}
+            <!-- <input type="password" name="password" id="password"> -->
         </div>
 
         <div class="form__item">
