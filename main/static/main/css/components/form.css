@@ -1,0 +1,56 @@
+
+.form{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 50px;
+    gap: 20px;
+    border-radius: 20px;
+    background-color: #CADCFA;
+    box-shadow: 2px 0 25px 0 rgba(0, 0, 0, 0.12),
+                -2px 0 25px 0 rgba(0, 0, 0, 0.12),
+                0 2px 25px 0 rgba(0, 0, 0, 0.12),
+                0 -2px 25px 0 rgba(0, 0, 0, 0.12);
+
+
+}
+.form input, .form select, .form textarea, .form__input{
+    outline: none;
+    border: 2px solid var(--main_color);
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.form textarea{
+    resize: none;
+}
+
+.form__item{
+    display: flex;
+    flex-direction: column;
+}
+.form__links{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2px;
+
+}
+
+.form__link{
+    color: grey;
+    font-size: 12px;
+}
+.form__link:hover{
+    text-decoration: underline;
+
+}
+.form__title{
+    grid-column: 1/-1;
+    text-align: center;
+    color: var(--header_text_color);
+}
+.form__submit{
+    grid-column: 1/-1;
+    justify-self: center;
+    display: flex;
+    gap: 10px;
+    
+}

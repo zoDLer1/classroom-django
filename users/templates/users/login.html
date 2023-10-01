@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{%  block styles %}
+    <link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+
+<form class="form login-form" action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+
+    <h1 class="register-form__title">Авторизация</h1>
+    <div class="form__item">
+        <label for="name">Имя:</label>
+        {{form.username}}
+        {% comment %} <input type="text" name="name" id="name"> {% endcomment %}
+    </div>
+    
+    <div class="form__item">
+        <label for="password">Палоль:</label>
+        {{form.password}}
+        {% comment %} <input type="password" name="password" id="password"> {% endcomment %}
+        <div class="form__links">
+            <a href="" class="form__link">Забыли пароль?</a>
+            <a href="" class="form__link">Помощь</a>
+            
+        </div>
+        {{ form.non_field_errors }}
+    </div>
+
+    
+    <button type="submit" class="button button--primary register-form__submit"> 
+        <span class="button__text">Войти!</span>
+        <i class="fa-solid fa-graduation-cap"></i>
+    </button>
+</form>
+
+{% endblock %}

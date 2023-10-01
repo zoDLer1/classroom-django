@@ -1,0 +1,32 @@
+
+.container{
+    min-width: 960px;
+    margin: 0 auto;
+    /* margin-top: 50px; */
+    background-color: #CADCFA;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 2px 0 25px 0 rgb(0 0 0 / 12%), 
+                -2px 0 25px 0 rgb(0 0 0 / 12%), 
+                0 2px 25px 0 rgb(0 0 0 / 12%), 
+                0 -2px 25px 0 rgb(0 0 0 / 12%);
+}
+.container__header{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.container__title{
+    color: var(--header_text_color);
+}
+.container__header--content_center{
+    justify-content:center
+}
+.container__buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}

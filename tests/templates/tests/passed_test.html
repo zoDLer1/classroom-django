@@ -1,0 +1,21 @@
+{% extends 'tests/test_view_base.html' %}
+{% block buttons %}
+    {% if isAnswers %}
+        <a href="{% url 'test_for_class' test.ExistsInTestForClass.id  %}" class="button button--primary">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span class="button__text">Назад</span>
+        </a>
+    {% endif %}
+    <a href="{% url 'home' %}" class="button button--secondary">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> 
+        <span class="button__text">На главную</span>
+    </a>
+{% endblock buttons %}
+
+{% block answer %}
+    <div class="answer {% if answer.id == question.answer.id %} answer--user {% if isAnswers %} {% if not answer.right %}answer--incorrect{% endif %} {% endif %} {% endif %} {% if isAnswers %} {% if answer.right %}answer--correct{% endif %}{% endif %}">
+        
+          <!-- <input type="radio" name="answer_{{question.question.id}}" id=" answer_{{question.question.id}}_{{answer.id}}" value="{{answer.value}}" hidden> -->
+          <p class="answer__title ">{{answer.value}}</p>   
+    </div>
+{% endblock answer %}

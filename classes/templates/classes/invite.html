@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'classes/css/invite_components.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" class="form invite-form" method="post">
+    {% csrf_token %}
+    <h1 class="form__title">Присоединиться к классу: <br>{{class.name}}?</h1> 
+    <div class="invite-form__buttons">
+        <button type="submit" class="button button--sucess">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span class="button__text">Да</span>
+        </button>
+        <a href="{% url 'home' %}" class="button button--error">
+            <i class="fa-solid fa-xmark"></i>
+            <span class="button__text">Нет</span>
+        </a>
+    </div>
+</form>
+{% endblock content %} 

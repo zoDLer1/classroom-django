@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'classes/css/info.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="container info">
+        <h2 class="info__text">{{info}}</h2>
+        <div class="info__buttons">
+            <a href="{% url 'home' %}" class="button button--primary">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <h3 class="button__text">Назад</h3>
+            </a>
+            <a href="#" class="button button--transparent">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <h3 class="button__text">Другое</h3>
+            </a>
+        </div>
+    </div>
+    
+{% endblock content %}

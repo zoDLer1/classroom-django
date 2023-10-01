@@ -1,0 +1,28 @@
+.tests__list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.test{
+    background-color: aliceblue;
+    display: flex;
+    padding: 15px 30px;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+.test__header{
+    display: flex;
+    gap: 20px;
+}
+body{
+    background: url('../img/stud2.jpg');
+}
+.test__buttons{
+
+}
+.list_is_empty{
+    color: #6d6d6d;
+    padding: 0 2px;
+}

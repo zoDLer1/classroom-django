@@ -1,0 +1,21 @@
+body{
+    background: url('static/main/img/stud2.jpg');
+}
+
+.member__answers{
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 10px;
+}   
+.less_than_60{
+    background-color: #EB1B25;
+}
+.from_60_to_70{
+    background-color: orange;
+}
+.from_70_to_85{
+    background-color: #13BD6B;
+}
+.more_than_85{
+    background-color: #0d1b48;
+}

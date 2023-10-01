@@ -1,0 +1,60 @@
+@import url('components/row-list.css');
+@import url('components/members.css');
+@import url('components/tests.css');
+
+
+.invite-link{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-self: center;
+    padding: 0 10px;
+   margin-bottom: 20px;
+}
+.classes__title{
+    height: 34px;
+}
+
+
+.container{
+    background-color: #CADCFA;
+    max-width: 1300;
+
+}
+.invite-link__input{
+    width: 340px;
+    
+}
+
+body{
+    background: url('/static/main/img/stud2.jpg');
+}
+.invite-type{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
+    margin-bottom: 50px;
+    height: 35px;
+}
+.invite-type__type{
+    display: flex;
+    color: #fff;
+    padding: 5px 16px;
+    border-radius: 25px;
+    align-items: center;
+    gap: 7px;
+}
+.invite-type__type p {
+    font-size: 15px;
+}
+
+.invite-type--opened{
+    background-color: #13BD6B;
+}
+.invite-type--by-invitation{
+    background-color: #5694FD;
+}
+.invite-type--closed{
+    background-color: #EB1B25;
+}

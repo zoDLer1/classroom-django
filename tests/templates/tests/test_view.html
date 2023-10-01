@@ -1,0 +1,30 @@
+{% extends 'tests/test_view_base.html' %}
+
+{% block buttons %}
+    
+        <a href="{% url 'add_to_class' test.id %}" class="button button--sucess">
+            <i class="fa-solid fa-plus"></i>
+            <span class="button__text">Добавить в класс</span>
+        </a>
+        <a href="#" class="button button--primary">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span class="button__text">Изменить</span>
+        </a>
+
+        <a href="{% url 'delete_test' test.id %}" class="button button--error">
+            <i class="fa-solid fa-xmark"></i>
+            <span class="button__text">Удалить</span>
+        </a>
+        <a href="{% url 'home' %}" class="button button--secondary">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span class="button__text">На главную</span>
+        </a>
+  
+{% endblock buttons %}
+
+{% block answer %}
+    <div class="answer{% if answer.right %} answer--correct{% endif %}">
+        <!-- <input type="radio" name="answer_{{question.question.id}}" id=" answer_{{question.question.id}}_{{answer.id}}" value="{{answer.value}}" hidden> -->
+        <p class="answer__title">{{answer.value}}</p>   
+    </div>
+{% endblock answer %}

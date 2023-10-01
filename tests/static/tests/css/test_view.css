@@ -1,0 +1,65 @@
+body{
+    background: url('/static/main/img/stud2.jpg');
+}
+
+.container{
+    min-width: 650px;
+}
+.test__description{
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+.test__question_list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 35px
+}
+.question{
+    background-color: aliceblue;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.question__header{
+    display: flex;
+    justify-content: center;
+}
+.question__answers{
+    display: flex;
+    padding: 40px 0 20px 0;
+    justify-content: center;
+    gap: 10px;
+}
+
+.answer__title{
+    border-radius: 10px;
+    border: 2px solid #0d1b48;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.answer input:checked + .answer__title{
+    background-color: #0d1b48;
+    color: #fff;
+}
+.test__buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.answer--incorrect .answer__title{
+    background-color: #EB1B25;
+    border: 2px solid #EB1B25;
+}
+.answer--correct .answer__title{
+    background-color: #13BD6B;
+    border: 2px solid #13BD6B;
+    color: #fff;
+}
+.answer--user .answer__title{
+    background-color: #0d1b48;
+    color: #fff
+}

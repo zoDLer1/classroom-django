@@ -1,0 +1,22 @@
+
+.grid-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    justify-content: start;
+    column-gap: 20px;
+    row-gap: 10px;
+}
+.grid-list__item{
+    width: 160px;
+    border-radius: 12px;
+    justify-content: start;
+    border: 2px solid var(--main_color);
+    position: relative;
+}
+.grid-list__title{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--header_text_color);
+}

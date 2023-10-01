@@ -1,0 +1,14 @@
+.invite-form{
+    min-width: 350px;
+    margin: 200px auto;
+}
+.invite-form__buttons{
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: center;
+    gap: 30px;
+}
+
+body{
+    background: url('/static/main/img/stud2.jpg');
+}

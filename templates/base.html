@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
-    <link rel="stylesheet" href="http://127.0.0.1:5000/css/style.css">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
     {% block styles %}
     {% endblock %}
     <script src="https://kit.fontawesome.com/7e280282ee.js" crossorigin="anonymous"></script>
@@ -14,15 +16,15 @@
     <header>
         <div class="navigation">
             <a href="#" class="navigation__elem">
-                <span class="nav__text">Tests</span>
+                <span class="nav__text">Тесты</span>
                 <i class="fa-solid fa-angle-down"></i>
             </a>
             <a href="#" class="navigation__elem">
-                <span class="nav__text">For teachers</span>
+                <span class="nav__text">Для преподавателя</span>
                 <i class="fa-solid fa-angle-down"></i>
             </a>
             <a href="#" class="navigation__elem">
-                <span class="nav__text">Support</span>
+                <span class="nav__text">Помощь</span>
                 <i class="fa-solid fa-angle-down"></i>
             </a>
         </div>
@@ -31,20 +33,32 @@
     {% if not user.is_authenticated %}
 
         <div class="user-nav">
-            <a href="{% url 'register' %}" class="button button--second user-nav__signup">
-                <span class="button__text">Sign up</span>
+            <a href="{% url 'register' %}" class="button button--secondary-invert user-nav__signup">
+                <span class="button__text">Регистрация</span>
                 <i class="fa-solid fa-angle-right"></i>
             </a>
-            <a href="{% url 'login' %}" class="button button--four user-nav__login">
+            <a href="{% url 'login' %}" class="button button--sucess user-nav__login">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
-                <span class="button__text">Log In</span>
+                <span class="button__text">Войти</span>
             </a>
         </div>
     {% else %}
         <div class="user-nav">
             <div class="user-nav__userinfo">
-                <img src="http://127.0.0.1:5000/img/avatar.png" class="user-nav__avatar" alt="" width="40px" height="40px">
+                <img src="{% static 'main/img/avatar.png' %}" class="user-nav__avatar" alt="" width="40px" height="40px">
                 <h3 class="user-nav__username">{{user}}</h3>
+                <a href="{% url 'logout' %}" class="button button--secondary-invert">
+                    <!-- <i class="fa-solid fa-arrow-right-to-bracket"></i> -->
+                    <span class="button__text">Выход</span>
+                </a>
+                {% if user.is_staff %}
+                    <a href="/admin" class="button button--secondary-invert">
+                        <!-- <i class="fa-solid fa-arrow-right-to-bracket"></i> -->
+                        <span class="button__text">admin panel</span>
+                    </a>
+                {% endif %}
+                
+
                 <div class="user-nav__menu">
                     <a href="#"><i class="fa-solid fa-bars"></i></a>
                 </div>

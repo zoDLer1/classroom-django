@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'users/css/register_page.css' %}">
+{% endblock %}
+
+{% block content %}
+    <form class="form register-form" action="" method="post">
+        {{form.errors}}
+        {% csrf_token %}
+        <h1 class="register-form__title">Регистрация</h1>
+        <div class="form__item">
+            <label for="id_first_name">Имя:</label>
+            {{form.first_name}}
+            <!-- <input type="text" name="name" id="name"> -->
+        </div>
+        <div class="form__item">
+            <label for="lastname">Фамилия:</label>
+            {{form.last_name}}
+            <!-- <input type="text" name="lastname" id="lastname"> -->
+        </div>
+        <div class="form__item">
+            <label for="email">Почта:</label>
+            {{form.email}}
+            <!-- <input type="email" name="email" id="email"> -->
+        </div>
+        <div class="form__item">
+            <label for="username">Логин:</label>
+            {{form.username}}
+            {{form.username.errors}}
+            <!-- <input type="text" name="username" id="username"> -->
+        </div>
+
+        <div class="form__item">
+            <label for="age">Возраст:</label>
+            {{form.age}}
+        </div>
+        <div class="form__item">
+            <label for="role">Роль:</label>
+            {{form.role}}
+        </div>
+
+        <div class="form__item">
+            <label for="password">Пароль:</label>
+            {{form.password}}
+            {{form.password.errors}}
+            <!-- <input type="password" name="password" id="password"> -->
+        </div>
+
+        <div class="form__item">
+            <label for="confim_password">Повторите пароль:</label>
+            {{form.confim_password}}
+            {{form.confim_password.errors}}
+            <!-- <input type="password" name="confim_password" id="confim_password" required> -->
+        </div>
+        
+        <button type="submit" class="button button--primary form__submit register-form__submit"> 
+            <span class="button__text">Отправить!</span>
+            <i class="fa-solid fa-graduation-cap"></i>
+        </button>
+    </form>
+{% endblock %}

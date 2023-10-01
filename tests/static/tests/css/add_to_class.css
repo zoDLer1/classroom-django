@@ -1,0 +1,18 @@
+body{
+    background: url('/static/main/img/stud2.jpg');
+}
+.add_to_class-form{
+    min-width: 300px;
+    max-width: 400px;
+    margin: 150px auto;
+}
+.add_to_class-form__buttons{
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: center;
+    gap: 15px;
+}
+select{
+    grid-column: 1/-1;
+    margin: 0 20px;
+}

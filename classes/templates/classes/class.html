@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'classes/css/class.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+<div class="container" id="app">
+    <form action="" method="POST">
+    {% csrf_token %}
+    <div class="container__header">
+        <h2 v-if="!edit" class="classes__title">{{class.name}}</h2>
+        {{form.name}}
+        <!-- <a href="{% url 'delete_class' class.id %}" class="button button--error">
+            <i class="fa-solid fa-xmark"></i>
+            <p class="button__text">delete</p>
+        </a> -->
+        
+    </div>
+    
+    <div class="invite-link">
+        <h3>Ссылка:</h3>
+        <input class="form__input invite-link__input" id="invite-link" type="text" value="{{invite}}">
+        <a @click="Copy" class="button button--sucess">
+            <i class="fa-solid fa-clone"></i>
+            <span class="button__text">Копировать</span>
+        </a>
+        <a href="{% url 'refresh-invite' class.id %}" class="button button--primary">
+            <i class="fa-solid fa-link"></i>
+            <span class="button__text">Новая ссылка</span>
+        </a>
+
+    </div>
+    <div class="invite-type">
+        <h3 class="invite-type__title">Тип:</h3>
+        <div v-if="!edit" class="invite-type__type {% if class.type.id == 1 %}invite-type--opened{% elif class.type.id == 2 %}invite-type--by-invitation{% else %}invite-type--closed{% endif %}">
+            {% if class.type.id == 1 %}
+                <i class="fa-solid fa-lock-open"></i>
+            {% elif class.type.id == 2 %}
+                <i class="fa-solid fa-handshake-simple"></i>
+            {% else %}
+                <i class="fa-solid fa-lock"></i>
+            {% endif %}
+            <p class="invite-type__text">{{class.type}}</p>
+            
+        </div>
+        {{form.type}}
+        
+    </div>
+    <div class="members">
+        <div class="members__header row-list__header">
+            <h3 class="members__title">Участники</h3>
+            <p class="members__count">{{members.count}}</p>
+        </div>
+        <ul class="members__list row-list">
+            {% if members.objs %}
+                {% for member in members.objs %}
+                <li class="member row-list__item">
+                    <a href="#" class="member__info row-list__info">
+                        <img src="{% static 'main/img/avatar.png' %}" alt="" width="25px" height="25px">
+                        <p class="member__firstname row-list__title">{{member.user.first_name}}</p>
+                        <p class="member__lastname row-list__title">{{member.user.last_name}}</p>    
+                    </a>
+                    <div class="member__functions row-list__functions">
+                        <a href="{% url 'except' class.id member.user.id %}" class="button button--error member__except row-list__button">
+                            
+                            <i class="fa-solid fa-xmark"></i>
+                            <h3 class="button__text">Удалить</h3>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            {% else %}
+                <p class="row-list__empty">Список пуст</p>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="tests">
+        <div class="tests__header row-list__header">
+            <h3 class="tests__title">Тесты</h3>
+            <p class="tests__count">{{tests.count}}</p>
+        </div>
+       
+        <ul class="tests__list row-list">
+            {% if tests.objs %}
+                {% for test in tests.objs %}
+                    <li class="test row-list__item">
+                        <a href="#" class="test__info row-list__info">
+                            <p class="test__title row-list__title">{{test.test.name}}</p>
+                        </a>
+                        <div class="test__functions row-list__functions">
+                            <a href="{% url 'test_for_class' test.id %}" class="button button--primary test__edit row-list__button">
+                                <i class="fa-solid fa-circle-info"></i>
+                                <h3 class="button__text">Подробнее</h3>
+                            </a>
+
+                        </div>
+                    </li>
+                {% endfor %}
+            {%else%}
+                <p class="row-list__empty">Список пуст</p>
+            {% endif %}
+            
+        </ul>
+    </div>
+    {%if class.type.id == 2%}
+
+        <div class="waiting-room">
+            <div class="waiting-room__header row-list__header">
+                <h3 class="waiting-room__title">Комната ожидания</h3>
+                <p class="tests__count">{{waitingRoom.count}}</p>
+            </div>
+
+            <ul class="waiting-room__list row-list">
+                {% if waitingRoom.objs %}
+                    {% for item in waitingRoom.objs %}
+                    <li class="waiting-room__item row-list__item">
+                        <a href="#" class="waiting-room__info row-list__info">
+                            <img src="{% static 'main/img/avatar.png' %}" alt="" width="25px" height="25px">
+                            <p class="waiting-room__firstname row-list__title">{{item.user.first_name}}</p>
+                            <p class="waiting-room__title row-list__title">{{item.user.last_name}}</p>
+                        </a>
+                        <div class="waiting-room__functions row-list__functions">
+                            <a href="{% url 'join' class.id item.user.id %}" class="button button--sucess waiting-room__done row-list__button">
+                                <i class="fa-solid fa-check"></i>
+                                <h3 class="button__text">Принять</h3>
+                            </a>
+                            
+                            <a href="{% url 'reject' class.id item.user.id %}" class="button button--error waiting-room__delete  row-list__button">
+                                <i class="fa-solid fa-xmark"></i>
+                                <h3 class="button__text">Отклонить</h3>
+                            </a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                {% else %}
+                    <p class="row-list__empty">Список пуст</p>
+                {% endif %}
+
+            </ul>
+        </div>
+        {% endif %}
+        <div class="container__buttons">
+            <button class="button button--sucess" type="submit" v-if="edit">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <span class="button__text">Сохранить</span>
+            </button>
+            <a class="button button--primary" @click="ToggleEdit">
+                <i class="fa-solid fa-pen-to-square"></i>
+                <span class="button__text">Изменить</span>
+            </a>
+            <a href="{% url 'delete_class' class.id %}" class="button button--error">
+                <i class="fa-solid fa-xmark"></i>
+                <p class="button__text">Удалить</p>
+            </a>
+            <a href="/home/" class="button button--secondary">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span class="button__text">Назад</span>
+            </a>
+            
+        </div>
+    
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="{% static 'classes/js/class.js' %}"></script>
+{% endblock content %}

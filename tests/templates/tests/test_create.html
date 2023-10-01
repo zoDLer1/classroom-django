@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tests/css/test.css' %}">
+    
+{% endblock styles %}
+
+{% block content %}
+    <div id="app">
+        <form class="form test-creation-from" action="" method="post">
+            {% csrf_token %}
+            <h1 class="form__title">Создать тест</h1>
+            <div class="test-creation-from__header">
+                <div class="form__item test-creation-from__item">
+                    <label for="test_name">Имя:</label>
+                    {{form.name}}
+                </div>
+                <div class="form__item test-creation-from__item">
+                    <label for="test_description">Описание:</label>
+                    {{form.description}}
+                </div>
+            </div>
+            
+            
+
+            <div class="test-creation-from__questions">
+                <question-component v-for="i in questions.length" :id="questions[i-1].id" @remove="RemoveQuestion" :value='questions[i-1].value' :key="i" :number="i"></question-component>
+            </div>
+            <div class="test-creation-from__buttons">
+                <button @click="addQuestion" class="test-creation-from__addqusetion button button--add">
+                    <i class="fa-solid fa-plus"></i>
+                    <p class="button__text">Добавить вопрос</p>
+                </button>
+                <button type="submit" class="test-creation-from__submit button button--primary">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <p class="button__text">Создать</p>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+    
+   
+    {% comment %} <script src="https://unpkg.com/axios/dist/axios.min.js"></script> {% endcomment %}
+    <!-- <script src="http://127.0.0.1:5000/js/add_question.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="{% static 'tests/js/script.js' %}"></script>
+{% endblock content %}

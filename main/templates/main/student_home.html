@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'main/css/student_home.css' %}">
+{% endblock styles %}
+{% block content %}
+
+<div class="container classes">
+    <div class="container__header">
+        <h2>Классы</h2>
+    </div>
+        <ul class="classes__list">
+            {% if members %}
+                {% for member in members %}
+                    <li class="classes__list-item test">
+                        <div class="test__header">
+                            <h4 class="classes__title">{{member.current_class.name}}</h4>
+                            <!-- <h4 class="classes__class">{{passed_test.test_for_class.current_class.name}}</h4> -->
+                        </div>
+                        <div class="test__buttons">
+                            <a href="{% url 'leave' member.current_class.id %}" class="button button--error">
+                                <i class="fa-solid fa-door-open"></i>
+                                <span class="button_text">Leave</span>  
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p class="list_is_empty">Вы не являетесь участником ни одного класса</p>
+            {% endif %}
+            
+        </ul>
+</div>
+
+
+<div class="container tests">
+    <div class="container__header">
+        <h2>Тесты</h2>
+    </div>
+        <ul class="tests__list">
+            {% if tests %}
+                {% for test in tests %}
+                <li class="tests__list-item test">
+                    <div class="test__header">
+                        <h4 class="tests__title">{{test.test.name}}</h4>
+                        <h4 class="tests__class">{{test.current_class.name}}</h4>
+                    </div>
+                    <div class="test__buttons">
+                        <a href="{% url 'pass_test' test.id %}" class="button button--sucess">
+                            <span class="button_text">Начать</span>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            {% else %}
+                <p class="list_is_empty">У вас нет назначенных классом тестов</p>
+            {% endif %}
+        </ul>
+</div>
+
+<div class="container tests">
+    <div class="container__header">
+        <h2>Пройденные тесты</h2>
+    </div>
+        <ul class="tests__list">
+            {% if passed_tests %}
+                {% for passed_test in passed_tests %}
+                    <li class="tests__list-item test">
+                        <div class="test__header">
+                            <h4 class="tests__title">{{passed_test.test_for_class.test.name}}</h4>
+                            <h4 class="tests__class">{{passed_test.test_for_class.current_class.name}}</h4>
+                        </div>
+                        <div class="test__buttons">
+                            <a href="{%url 'passed_test' passed_test.id %}" class="button button--primary">
+                                <span class="button_text">Подробнее</span>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p class="list_is_empty">У вас нет пройденных тестов</p>
+            {% endif %}
+        </ul>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% extends 'tests/test_view_base.html' %}
+{% block buttons %}
+<div class="test__buttons">
+
+    <button type="submit" class="button button--primary">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span class="button__text">Отправить</span>
+    </button>
+    <a href="/home/" class="button button--secondary"><i class="fa-solid fa-arrow-right-to-bracket"></i> <span class="button__text">На главную</span></a>
+</div>
+
+{% endblock buttons %}
+{% block answer %}
+    <div class="answer">
+        <input type="radio" name="answer_{{question.question.id}}" id="answer_{{question.question.id}}_{{answer.id}}" value="{{answer.value}}" hidden>
+        <label for='answer_{{question.question.id}}_{{answer.id}}' class="answer__title">{{answer.value}}</label>
+    </div>
+{% endblock answer %}

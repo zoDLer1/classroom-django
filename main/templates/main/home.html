@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+
+<div class="classes container">
+
+    <div class="classes__header container__header">
+        <h2 class="container__title classes__title">Классы</h2>
+        <a href="{% url 'createClass' %}" class="button button--add">
+            <i class="fa-solid fa-plus"></i>
+            <p class="button__text">Добавить</p>
+        </a>
+    </div>
+    <ul class="classes__list grid-list">
+        {% if classes %}
+            {% for class in classes %}
+                <li class="classes__item">
+                    <a href="{% url 'class' class.id %}" class="button button--secondary grid-list__item class">
+                        <i class="fa-solid fa-users"></i>
+                        <h3 class="class__title grid-list__title">{{class.name}}</h3>
+                        {% comment %} <i class="fa-solid fa-circle class__notification"></i> {% endcomment %}
+                    </a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <div class="classes__empty">
+                <p class="classes__empty-text">У вас нет классов</p>
+            </div>
+        {% endif %}
+        
+    </ul>
+</div>
+
+<div class="mytests container">
+    <div class="mytests__header container__header">
+        <h2 class="mytests__title container__title">Тесты</h2>
+        <a href="{% url 'create_test' %}" class="button button--add">
+            <i class="fa-solid fa-plus"></i>
+            <span class="button__text">Добавить</span>
+        </a>
+    </div>
+    
+
+    <ul class="mytests__list grid-list">
+        {% if tests %}
+            {%for test in tests%}
+                <li class="mytests__item">
+                    <a href="{% url 'view_test' test.id %}" class="button button--secondary grid-list__item test">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <h3 class="class__title grid-list__title">{{test.name}}</h3>
+                    </a>
+                </li>
+            {% endfor %}
+        {% else %}
+        <div class="classes__empty">
+            <p class="classes__empty-text">У вас нет тестов</p>
+        </div>
+        {% endif %}
+    </ul>
+</div>
+{% endblock content %}

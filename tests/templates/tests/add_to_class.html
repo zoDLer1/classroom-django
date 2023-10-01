@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tests/css/add_to_class.css' %}">
+{% endblock styles %}
+
+{% block content %}
+<form action="" class="container form add_to_class-form" method="post">
+    {% csrf_token %}
+    <h2 class="form__title">Добавить тест "{{test.name}}" в класс: </h2> 
+    <select class="add_to_class-form__classes" name="class" id="class">
+        {% for class in classes %}
+            <option value="{{class.id}}">{{class.name}}</option>
+        {% endfor %}
+        
+    </select>
+    <div class="add_to_class-form__buttons">
+        <button type="submit" class="button button--sucess">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span class="button__text">Да</span>
+        </button>
+        <a href="{% url 'home' %}" class="button button--error">
+            <i class="fa-solid fa-xmark"></i>
+            <span class="button__text">Нет</span>
+        </a>
+    </div>
+</form>
+{% endblock content %} 

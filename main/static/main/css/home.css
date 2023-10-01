@@ -1,0 +1,15 @@
+@import url('components/grid-list.css');
+@import url('components/class.css');
+@import url('components/test.css');
+
+
+.container{
+    /* margin: 40px 0; */
+}
+.classes{
+    margin-top: 25px;
+}
+
+body{
+    background: url('../img/stud2.jpg');
+}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tests/css/test_view.css' %}">
+{% endblock styles %}
+{% block content %}
+    
+    <div class="container test">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="container__header container__header--content_center">
+                <h2 class="container__title">{{test.name}}</h2>
+            </div>
+            <div class="test__description">{{test.description}}</div>
+            <ul class="test__question_list">
+                {% for question in questions %}
+                    <li class="question">
+                        <div class="question__header">
+                            <h3 class="question__title">{{question.question.name}}</h3>
+                        </div>
+                        <div class="question__answers">
+                            {% for answer in question.answers %}
+                                {% block answer %}
+                                  
+                                {% endblock answer %}
+                               
+                            {% endfor %}
+                        </div>
+                    </li>
+                    
+                {% endfor %}
+            </ul>
+            <div class="test__buttons">
+                {% block buttons %}
+          
+                {% endblock buttons %}
+            </div>
+        
+    </form>
+
+    </div>
+{% endblock content %}

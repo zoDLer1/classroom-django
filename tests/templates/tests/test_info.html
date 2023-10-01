@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tests/css/test_info.css' %}">
+    <link rel="stylesheet" href="{% static 'classes/css/class.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <div class="container">
+        <div class="members">
+            <div class="members__header row-list__header">
+                <h3 class="members__title">Пройденные тесты</h3>
+                <p class="members__count">{{passed_tests.count}}</p>
+            </div>
+            <ul class="members__list row-list">
+                {% if passed_tests %}
+                    {% for passed_test in passed_tests %}
+                        <li class="member row-list__item">
+                            <a href="#" class="member__info row-list__info">
+                                <img src="{% static 'main/img/avatar.png' %}" alt="" width="25px" height="25px">
+                                <p class="member__firstname row-list__title">{{passed_test.user.first_name}}</p>
+                                <p class="member__lastname row-list__title">{{passed_test.user.last_name}}</p>    
+                                <p class="member__answers {% if passed_test.Persent < 60 %}
+                                less_than_60
+                            {% elif passed_test.Persent < 60 %}
+                                from_60_to_70
+                            {% elif passed_test.Persent < 60 %}
+                                from_70_to_85
+                            {% else %}
+                                more_than_85
+                            {% endif %}">{{passed_test.CorrectQuestions.count}}/{{passed_test.Questions.count}}</p>
+
+                    
+                            </a>
+                            <div class="member__functions row-list__functions">
+                                <a href="{% url 'passed_test' passed_test.id %}" class="button button--primary member__except row-list__button">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                    <h3 class="button__text">Подробнее</h3>
+                                </a>
+                            </div>
+                        </li>   
+                    {% endfor %}
+                {% else %}
+                    <p class="row-list__empty">Список пуст</p>
+                {% endif %}
+                         
+            </ul>
+
+            
+
+
+        </div>
+    </div>
+{% endblock content %} 

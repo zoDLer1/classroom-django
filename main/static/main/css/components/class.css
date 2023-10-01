@@ -1,0 +1,12 @@
+.class__notification{
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    transform: scale(0.8);
+    color: #E3B042;
+}
+.classes__empty{
+    color: #6d6d6d;
+    grid-column: 1/-1;
+   
+}

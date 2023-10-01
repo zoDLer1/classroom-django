@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'main/css/index_components.css' %}">
+{% endblock styles %}
+
 {% block content %}
 <div class="mainblock">
     <div class="content mainblock__content">
@@ -7,13 +13,13 @@
             <p class="mainblock__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, expedita!</p>
             <div class="mainblock__links">
                 
-                <a href="#" class="mainblock__link button button--four">Learn More</a>
-                <a class="button  mainblock__link button--third" href="#">Sign up for free</a>
+                <a href="#" class="mainblock__link button button--primary">Learn More</a>
+                <a class="button  mainblock__link button--transparent" href="#">Sign up for free</a>
             </div>
             <p class="mainblock__log-link-header">Already have an account? <a href="#" class="mainblock__log-link">Log in</a></p>
         </div>
         <div class="mainblock__img">
-            <img src="http://127.0.0.1:5000/img/student-space_illustrations_studying .png" alt="">
+            <img src="{% static 'main/img/student-space_illustrations_studying .png' %}" alt="">
         </div>  
     </div>
 </div>
@@ -21,8 +27,8 @@
     <div class="freetest__content content">
         <h2 class="freetest__title">They engage from any device.You get instant feedback.</h2>
         <p class="freetest__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non ipsam sequi vel!</p>
-        <img class="freetest__image" src="http://127.0.0.1:5000/img/ex1.png" alt="...">
-        <a href="#" class="button button--four freetest__button">
+        <img class="freetest__image" src="{% static 'main/img/ex1.png' %}" alt="...">
+        <a href="#" class="button button--sucess">
             <span class="button_text">Try for free</span>
             <i class="fa-solid fa-angle-right"></i>
         </a>
@@ -36,16 +42,16 @@
                 <li class="list__item">
                     <h4 class="list__title">Education</h4>     
                     <section class="list__section">
-                        <img class="list__image" src="http://127.0.0.1:5000/img/education1.jpg" alt="" width="250px" >
+                        <img class="list__image" src="{% static 'main/img/education1.jpg' %}" alt="" width="250px" >
                         <p class="list__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptates eum reiciendis veniam possimus nostrum, dolorem voluptas? Praesentium, consequuntur nam? Ea amet ducimus soluta veritatis ab. Optio quae excepturi velit.</p>
                     </section>
                     <section class="list__section">
                         <p style="text-align: end;" class="list__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptates eum reiciendis veniam possimus nostrum, dolorem voluptas? Praesentium, consequuntur nam? Ea amet ducimus soluta veritatis ab. Optio quae excepturi velit.</p>
-                        <img class="list__image" src="http://127.0.0.1:5000/img/education2.jpg" alt="" width="250px">
+                        <img class="list__image" src="{% static 'main/img/education2.jpg' %}" alt="" width="250px">
                         
                     </section>
                     <section class="list__section">
-                        <img class="list__image" src="http://127.0.0.1:5000/img/education3.jpg" alt="" width="250px">
+                        <img class="list__image" src="{% static 'main/img/education3.jpg' %}" alt="" width="250px">
                         <p  class="list__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis voluptates eum reiciendis veniam possimus nostrum, dolorem voluptas? Praesentium, consequuntur nam? Ea amet ducimus soluta veritatis ab. Optio quae excepturi velit.</p>
                     </section>
 
@@ -67,19 +73,19 @@
         <h2 class="learning__title">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
         <ul class="learning__cards">
             <li class="learning__card card">
-                <img src="http://127.0.0.1:5000/img/school2.png" alt="" class="card__image">
+                <img src="{% static 'main/img/school2.png' %}" alt="" class="card__image">
                 <h4 class="card__title">For school</h4>
                 <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt pariatur asperiores magnam maxime eligendi nobis.</p>
-                <a href="#" class="button button--four card__button">
+                <a href="#" class="button button--sucess card__button">
                      <span class="button_text">Learn more</span>
                      <i class="fa-solid fa-angle-right"></i>
                 </a>
              </li>
              <li class="learning__card card">
-                 <img src="http://127.0.0.1:5000/img/office2.png" alt="" class="card__image">
+                 <img src="{% static 'main/img/office2.png' %}" alt="" class="card__image">
                  <h4 class="card__title">For work</h4>
                  <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt pariatur asperiores magnam maxime eligendi nobis.</p>
-                 <a href="#" class="button button--four card__button">
+                 <a href="#" class="button button--sucess card__button">
                       <span class="button_text">Learn more</span>
                       <i class="fa-solid fa-angle-right"></i>
                   </a>
@@ -95,7 +101,7 @@
             <input type="text" name="lastname" placeholder="lastname">
             <input type="text" name="email" placeholder="emali">
             <textarea name="description" id="" cols="30" placeholder="Your problem..." rows="30"></textarea>
-            <button type="submit" class="button button--four feedback__submit"> 
+            <button type="submit" class="button button--primary feedback__submit"> 
                 <span class="button__text">Send</span>
                 <i class="fa-solid fa-paper-plane"></i>
             </button>

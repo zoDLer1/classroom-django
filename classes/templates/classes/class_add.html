@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'classes/css/add-class.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    <form class="form add-class-form" action="" method="post">
+        {{form.errors}}
+        {% csrf_token %}
+        <h1 class="add-class-form__title form__title">Создать класс</h1>
+        <div class="form__item add-class-form__name">
+            <label for="name">Имя:</label>
+            {{form.name}}
+            {% comment %} <input type="text" name="name" id="name"> {% endcomment %}
+        </div>
+        <button type="submit" class="button button--primary add-class-form__submit form__submit"> 
+            <span class="button__text">Создать</span>
+            <i class="fa-solid fa-plus"></i>
+        </button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,18 @@
+body{
+    background: url('/static/main/img/stud2.jpg');
+}
+
+.info{
+    min-width: 400px;
+    margin: 200px auto;
+
+}
+.info__text{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.info__buttons{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}

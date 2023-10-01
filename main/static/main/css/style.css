@@ -1,35 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
-@import url('button.css');
-@import url('mainblock.css');
-@import url('information.css');
-@import url('freetest.css');
-@import url('list.css');
-@import url('learning.css');
-@import url('feedback.css');
-@import url('footer.css');
-@import url('form.css');
-@import url('header.css');
+@import url('components/form.css');
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('components/buttons.css');
+@import url('components/fonts.css');
+@import url('components/container.css');
+
+:root{
+    --main_color: #0d1b48;
+    --header_text_color:#210B54;
+    --text_color: #6d6d6d;
+}
+
 *{
     box-sizing: border-box;
-    font-family: 'Poppins',  sans-serif;
     margin: 0;
     padding: 0;
 }
 
-main{
-    min-height: 800px;
+.errorlist{
+    list-style: none;
+    margin-top: 5px;
 }
-h1, h2, h3, h4, h5, h6{
-    font-family: 'Quicksand', sans-serif;
+.errorlist li{
+    font-size: 14px;
+    text-align: center;
+    color: red;
+    font-weight: 500;
+}
+
+main{
+    min-height: 890px;
+    display: flex;
+    flex-direction: column;
+    padding: 80px;
+    gap: 60px;
 }
 .content{
-
     width: 1300px;
     margin: 0 auto;
 }
+
 a{
     text-decoration: none;
 }
-

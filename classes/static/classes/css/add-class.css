@@ -1,0 +1,11 @@
+.add-class-form{
+    min-width: 320px;
+    margin: 70px auto;
+    justify-items: center;
+}
+body{
+    background: url('/static/main/img/stud2.jpg');
+}
+.add-class-form__name{
+    grid-column: 1/-1;
+}
